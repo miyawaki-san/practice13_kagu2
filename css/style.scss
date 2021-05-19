@@ -1,0 +1,96 @@
+// compileExpanded: style.css
+
+//*------------------*
+//*  font-size定義
+//*------------------*
+//$sizeにpx表示を入れて使う
+
+@mixin rem($size) {
+  font-size: $size + px; /*IE9以前に対応する*/
+  font-size: ($size / 16) + rem;
+}
+
+//*------------------*
+//*  ブレークポイント設定
+//*------------------*
+
+$breakpoints: (
+  "xs": (
+    max-width: 0,
+  ),
+  "sm": (
+    max-width: 576px,
+  ),
+  "md": (
+    // min-width: 768px,
+    max-width: 600px,
+  ),
+  "lg": (
+    max-width: 992px,
+  ),
+  "xl": (
+    max-width: 1200px,
+  ),
+  "xxl": (
+    max-width: 1400px,
+  ),
+) !default;
+
+//*------------------*
+//*  mixin
+//*  レスポンシブ設定
+//*------------------*
+
+@mixin responsive($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media screen and #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+
+  // マップ型で定義されていない値が呼び出された時はエラーを返す
+  @else {
+    @error "指定されたブレークポイントは定義されていません。" + "指定できるブレークポイントは次のとおりです。 -> #{map-keys($breakpoints)}";
+  }
+}
+
+//*------------------*
+//*  全体レイアウト
+//*------------------*
+
+@charset "UTF-8";
+
+body {
+  color: rgb(57, 62, 70);
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-weight: lighter;
+  box-sizing: border-box;
+}
+
+h1 {
+  // border-bottom: 1px solid rgb(57, 62, 70);
+  @include rem(32);
+  font-weight: bold;
+  text-align: center;
+  // padding-bottom: 0.3em;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 10px 4% 8px;
+  align-items: center; //回答見て追記
+  // width: 960px;
+}
+
+//*------------------*
+//*  個別レイアウト
+//*------------------*
+
+@include responsive(md) {
+  display: flex;
+  justify-content: space-between;
+}
+
+@include rem(10);
