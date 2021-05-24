@@ -6,13 +6,223 @@
 
     <link rel="stylesheet" type="text/css" href="reset.css" />
     <link rel="stylesheet" type="text/css" href="style.css" />
-
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      (function (d) {
+        var config = {
+            kitId: "viw8eci",
+            scriptTimeout: 3000,
+            async: true,
+          },
+          h = d.documentElement,
+          t = setTimeout(function () {
+            h.className =
+              h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+          }, config.scriptTimeout),
+          tk = d.createElement("script"),
+          f = false,
+          s = d.getElementsByTagName("script")[0],
+          a;
+        h.className += " wf-loading";
+        tk.src = "https://use.typekit.net/" + config.kitId + ".js";
+        tk.async = true;
+        tk.onload = tk.onreadystatechange = function () {
+          a = this.readyState;
+          if (f || (a && a != "complete" && a != "loaded")) return;
+          f = true;
+          clearTimeout(t);
+          try {
+            Typekit.load(config);
+          } catch (e) {}
+        };
+        s.parentNode.insertBefore(tk, s);
+      })(document);
+    </script>
     <title>KAGU -recruit-</title>
   </head>
 
   <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
+    <!-- ↓ header ↓ -->
+    <header id="header" class="header">
+      <div class="headerInner">
+        <img src="#" />
+        <p class="header__title"></p>
+      </div>
+      <div class="burgerBtn">
+        <span class="burgerBtn__bar--top"></span>
+        <span class="burgerBtn__bar--center"></span>
+        <span class="burgerBtn__bar--bottom"></span>
+      </div>
+      <nav>
+        <ul class="headerNav">
+          <li class="headerNav__item"><a href="#">KAGUを知る</a></li>
+          <li class="headerNav__item"><a href="#">KAGUで働く</a></li>
+          <li class="headerNav__item"><a href="#">採用情報</a></li>
+          <li class="headerNav__item">
+            <a href="#"><p class="btn--entry">ENTRY</p></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!-- ↑ header ↑ -->
+
+    <main>
+      <!-- ↓ mainVisual ↓ -->
+      <section id="mainVisual" class="mainVisual sectionWrapper">
+        <picture>
+          <source
+            media="(max-width:959px)"
+            srcset="img/mainvisual_palmtop.jpg"
+          />
+          <img src="img/mainvisual_desktop.jpg" alt="" />
+        </picture>
+        <p class="pictureText--english">Create a smile.</p>
+        <p class="pictureText--japanese">「笑顔」を創る</p>
+      </section>
+      <!-- ↑ mainVisual ↑ -->
+
+      <!-- ↓ vision ↓ -->
+      <section id="vision" class="vision sectionWrapper">
+        <div class="backgroungBox"></div>
+        <div>
+          <h1 class="sectionTitle">Vision</h1>
+          <h2 class="SectionTitle--japanese">「楽しく、ずっと笑顔で」</h2>
+          <p class="vision__text">
+            お客さまに「笑顔」になっていただくために、まずは、わたしたちの「笑顔」から。
+          </p>
+          <p class="vision__text">
+            まじめに、楽しく仕事をすることで、わたしたちに関わるすべての人へ、「笑顔」を届けます。
+          </p>
+        </div>
+      </section>
+      <!-- ↑ vision ↑ -->
+
+      <!-- ↓ about us ↓ -->
+      <section id="aboutUs" class="aboutUs sectionWrapper">
+        <h1 class="sectionTitle">ABOUT US</h1>
+        <div class="aboutUsItem">
+          <p class="aboutUsItem__title">代表メッセージ</p>
+          <p class="aboutUsItem__outline">
+            代表からのメッセージをご覧いただけます。
+          </p>
+        </div>
+        <div class="aboutUsItem">
+          <p class="aboutUsItem__title">会社概要</p>
+          <p class="aboutUsItem__outline">会社概要をご紹介します。</p>
+        </div>
+        <div class="aboutUsItem">
+          <p class="aboutUsItem__title">沿革</p>
+          <p class="aboutUsItem__outline">
+            創業当時からの歴史をご覧いただけます。
+          </p>
+        </div>
+      </section>
+      <!-- ↑ about us ↑ -->
+
+      <!-- ↓ join us ↓ -->
+      <section id="joinUs" class="joinUs sectionWrapper">
+        <h1 class="sectionTitle">JOIN US</h1>
+        <h2 class="sectionTitle--japanese">KAGUで働く</h2>
+        <div class="employee">
+          <h2 class="employee__title">社員紹介</h2>
+          <ul class="employeeList">
+            <li class="employeeCard">
+              <img src="img/employee1.jpg" alt="" />
+              <div class="employeeCard__outline">
+                <p class="employeeCard__message"></p>
+                <p class="employeeCard__info"></p>
+              </div>
+            </li>
+            <li class="employeeCard">
+              <img src="img/employee2.jpg" alt="" />
+              <div class="employeeCard__outline">
+                <p class="employeeCard__message"></p>
+                <p class="employeeCard__info"></p>
+              </div>
+            </li>
+            <li class="employeeCard">
+              <img src="img/employee3.jpg" alt="" />
+              <div class="employeeCard__outline">
+                <p class="employeeCard__message"></p>
+                <p class="employeeCard__info"></p>
+              </div>
+            </li>
+            <li class="employeeCard">
+              <img src="img/employee4.jpg" alt="" />
+              <div class="employeeCard__outline">
+                <p class="employeeCard__message"></p>
+                <p class="employeeCard__info"></p>
+              </div>
+            </li>
+          </ul>
+          <div class="employee__columnList">
+            <div class="employee__columnItem">
+              <img src="img/on-off.jpg" alt="" class="employee__columnImg" />
+              <p class="pictureText--english">ON and OFF</p>
+              <p class="pictureText--japanese">社員のオンとオフ</p>
+            </div>
+            <div class="employee__columnItem">
+              <img
+                src="img/cross-talk.jpg"
+                alt=""
+                class="employee__columnImg"
+              />
+              <p class="pictureText--english">CROSS TALK</p>
+              <p class="pictureText--japanese">中途×新卒 対談</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ↑ join us ↑ -->
+
+      <!-- ↓ entry ↓ -->
+      <section id="entry" class="entry sectionWrapper">
+        <h1 class="sectionTitle">ENTRY</h1>
+        <h2 class="sectionTitle--japanese">採用情報</h2>
+        <div class="entry__btnArea">
+          <p class="entry__btn entry__btn--midCareer">中途採用 募集要項</p>
+          <p class="entry__btn entry__btn--newGraduate">新卒採用 募集要項</p>
+        </div>
+      </section>
+      <!-- ↑ entry ↑ -->
+    </main>
+
+    <!-- ↓ footer ↓ -->
+    <footer id="footer" class="footer sectionWrapper">
+      <div class="footerWrapper">
+        <div class="footerContainer">
+          <div class="footerInner">
+            <img src="#" />
+            <p class="header__title"></p>
+          </div>
+          <nav>
+            <ul class="footerNav">
+              <li class="footerNav__item--lg">KAGUを知る</li>
+              <li class="footerNav__item--sm">代表メッセージ</li>
+              <li class="footerNav__item--sm">会社概要</li>
+              <li class="footerNav__item--sm">沿革</li>
+            </ul>
+            <ul class="footerNav">
+              <li class="footerNav__item--lg">KAGUで働く</li>
+              <li class="footerNav__item--sm">社員紹介</li>
+              <li class="footerNav__item--sm">社員のオンとオフ</li>
+              <li class="footerNav__item--sm">中途×新卒 対談</li>
+            </ul>
+            <ul class="footerNav">
+              <li class="footerNav__item--lg">採用情報</li>
+              <li class="footerNav__item--sm">中途採用情報</li>
+              <li class="footerNav__item--sm">新卒採用情報</li>
+            </ul>
+          </nav>
+        </div>
+        <p class="btn--entry">ENTRY</p>
+      </div>
+      <p class="copyRight">© 2020 KAGU inc.</p>
+    </footer>
+    <!-- ↑ footer ↑ -->
   </body>
 </html>
