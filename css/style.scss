@@ -1,18 +1,23 @@
 // compileExpanded: style.css
 
-//*------------------*
-//*  font-size定義
-//*------------------*
-//$sizeにpx表示を入れて使う
+//*----------------------------------------*//
+//*
+//*  関数、定数の定義
+//*
+//*----------------------------------------*//
+
+//*----------------------------------------*
+//*  フォントサイズ設定 (px->rem)
+//*----------------------------------------*
 
 @mixin rem($size) {
-  font-size: $size + px; /*IE9以前に対応する*/
+  font-size: $size + px;
   font-size: ($size / 16) + rem;
 }
 
-//*------------------*
+//*----------------------------------------*
 //*  ブレークポイント設定
-//*------------------*
+//*----------------------------------------*
 
 $breakpoints: (
   "xs": (
@@ -36,10 +41,9 @@ $breakpoints: (
   ),
 ) !default;
 
-//*------------------*
-//*  mixin
+//*----------------------------------------*
 //*  レスポンシブ設定
-//*------------------*
+//*----------------------------------------*
 
 @mixin responsive($breakpoint) {
   @if map-has-key($breakpoints, $breakpoint) {
@@ -54,43 +58,26 @@ $breakpoints: (
   }
 }
 
-//*------------------*
-//*  全体レイアウト
-//*------------------*
+//*----------------------------------------*
+//*  カラー定数の設定
+//*----------------------------------------*
+$colorGray: #333;
+$colorBrown: #f7f6f5;
+$colorBrown2: #aa8f7b;
+$colorWhite: #fff;
+
+/*-------------------------------------------
+/* 全体設定
+/*------------------------------------------*/
 
 @charset "UTF-8";
 
 body {
-  color: rgb(57, 62, 70);
-  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-  font-weight: lighter;
   box-sizing: border-box;
+  color: rgb(57, 62, 70);
+  font-family: fot-tsukuardgothic-std, sans-serif;
 }
 
-h1 {
-  // border-bottom: 1px solid rgb(57, 62, 70);
-  @include rem(32);
-  font-weight: bold;
-  text-align: center;
-  // padding-bottom: 0.3em;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-  padding: 10px 4% 8px;
-  align-items: center; //回答見て追記
-  // width: 960px;
-}
-
-//*------------------*
-//*  個別レイアウト
-//*------------------*
-
-@include responsive(md) {
-  display: flex;
-  justify-content: space-between;
-}
-
-@include rem(10);
+/*-------------------------------------------
+/* header
+/*------------------------------------------*/
