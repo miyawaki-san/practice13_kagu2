@@ -21,23 +21,22 @@
 
 $breakpoints: (
   "xs": (
-    max-width: 0,
+    min-width: 0,
   ),
   "sm": (
-    max-width: 576px,
+    min-width: 559px,
   ),
   "md": (
-    // min-width: 768px,
-    max-width: 600px,
+    min-width: 959px,
   ),
   "lg": (
-    max-width: 992px,
+    min-width: 1024px,
   ),
   "xl": (
-    max-width: 1200px,
+    min-width: 1223px,
   ),
   "xxl": (
-    max-width: 1400px,
+    min-width: 1500px,
   ),
 ) !default;
 
@@ -62,7 +61,8 @@ $breakpoints: (
 //*  カラー定数の設定
 //*----------------------------------------*
 $colorGray: #333;
-$colorBrown: #f7f6f5;
+$colorLightBlue: #60d8cc;
+$colorLightBlue2: #2ca9b6;
 $colorBrown2: #aa8f7b;
 $colorWhite: #fff;
 
@@ -70,14 +70,220 @@ $colorWhite: #fff;
 /* 全体設定
 /*------------------------------------------*/
 
-@charset "UTF-8";
+// @charset "UTF-8";
 
 body {
   box-sizing: border-box;
   color: rgb(57, 62, 70);
-  font-family: fot-tsukuardgothic-std, sans-serif;
+  font-family: "fot-tsukuardgothic-std", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: .05em;
+}
+
+.sectionWrapper {
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 /*-------------------------------------------
 /* header
 /*------------------------------------------*/
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 17px 20px 14px;
+}
+.headerInner {
+  display: flex;
+  justify-content: space-between;
+}
+.headerNav {
+  display: none;
+  justify-content: space-between;
+}
+
+.headerLogo {
+  height: auto;
+  margin-right: 6px;
+  width: 109px;
+}
+
+.header__title {
+  font-feature-settings: "palt";
+  font-weight: bold;
+  @include rem(12);
+  letter-spacing: .1em;
+}
+
+.burgerBtn {
+  position: relative;
+}
+
+.btn--entry {
+  background: linear-gradient(90deg, #24a2b3, #68e0cf);
+  border-radius: 23px;
+  color: #fff;
+  @include rem(20);
+  letter-spacing: .12em;
+  line-height: .75;
+  padding: 15px 62px;
+  position: relative;
+  &::before {
+    background-color: #fff;
+    content: "";
+    height: 2px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    width: 23px;
+  }
+  &::after {
+    background-color: #fff;
+    content: "";
+    height: 2px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: rotate(33.3deg);
+    transform-origin: 100% 50% 0;
+    width: 11px;
+  }
+}
+
+.open .burgerBtn {
+  z-index: 200;
+}
+
+.burgerBtn__bar {
+  background-color: $colorLightBlue;
+  display: block;
+  height: 2px;
+  position: absolute;
+  right: 0;
+  transition: transform .5s;
+}
+
+.burgerBtn__bar--top {
+  width: 24px;
+}
+.open .burgerBtn__bar--top {
+  top: 50%;
+  transform: rotate(135deg);
+  width: 26px;
+}
+
+.burgerBtn__bar--middle {
+  top: 8px;
+  width: 20px;
+}
+.open .burgerBtn__bar--middle {
+  display: none;
+}
+
+.burgerBtn__bar--bottom {
+  top: 16px;
+  width: 16px;
+}
+.open .burgerBtn__bar--bottom {
+  top: 50%;
+  transform: rotate(-135deg);
+  width: 26px;
+}
+
+.overlay {
+  display: none;
+  transition: all .9s;
+}
+
+.open .overlay {
+  background: #fff;
+  cursor: pointer;
+  display: block;
+  height: 100%;
+  left: 0;
+  opacity: .9;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 150;
+}
+
+.open .headerNav {
+  align-items: center;
+  color: $colorLightBlue2;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  @include rem(16);
+  left: 50%;
+  position: absolute;
+  top: 186px;
+  transform: translateX(-50%);
+  z-index: 200;
+}
+
+.open .headerNav__item {
+  padding-bottom: 45px;
+}
+
+@include responsive(md) {
+  .header {
+    padding: 17px 50px;
+  }
+  .headerInner {
+    align-items: center;
+  }
+  .headerNav {
+    align-items: center;
+    display: flex;
+  }
+  .headerNav__item {
+    font-weight: bold;
+    &:not(:last-of-type) {
+      margin-left: 20px;
+      // margin-left: 6.239%;
+    }
+    &:last-of-type {
+      margin-left: 20px;
+      // margin-left: 7.799%;
+    }
+  }
+
+  .headerLogo {
+    margin-right: 16px;
+  }
+  .burgerBtn {
+    display: none;
+  }
+  .header__title {
+    @include rem(16);
+  }
+}
+
+@include responsive(xl) {
+  .headerNav__item {
+    &:not(:last-of-type) {
+      margin-left: 40px;
+    }
+    &:last-of-type {
+      margin-left: 50px;
+    }
+  }
+}
+/*-------------------------------------------
+/* mainVisual
+/*------------------------------------------*/
+.mainVisualImg {
+  height: 530px;
+  object-fit: cover;
+  object-position: 67% -50px;
+  width: 100%;
+}
+
+@include responsive(md) {
+  .mainVisualImg {
+    height: 830px;
+    object-position: 50% 70%;
+  }
+}

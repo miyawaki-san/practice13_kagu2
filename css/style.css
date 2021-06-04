@@ -6,10 +6,260 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   color: #393e46;
-  font-family: fot-tsukuardgothic-std, sans-serif;
+  font-family: "fot-tsukuardgothic-std", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: .05em;
+}
+
+.sectionWrapper {
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 /*-------------------------------------------
 /* header
 /*------------------------------------------*/
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 17px 20px 14px;
+}
+
+.headerInner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.headerNav {
+  display: none;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.headerLogo {
+  height: auto;
+  margin-right: 6px;
+  width: 109px;
+}
+
+.header__title {
+  -webkit-font-feature-settings: "palt";
+          font-feature-settings: "palt";
+  font-weight: bold;
+  font-size: 12px;
+  font-size: 0.75rem;
+  letter-spacing: .1em;
+}
+
+.burgerBtn {
+  position: relative;
+}
+
+.btn--entry {
+  background: -webkit-gradient(linear, left top, right top, from(#24a2b3), to(#68e0cf));
+  background: linear-gradient(90deg, #24a2b3, #68e0cf);
+  border-radius: 23px;
+  color: #fff;
+  font-size: 20px;
+  font-size: 1.25rem;
+  letter-spacing: .12em;
+  line-height: .75;
+  padding: 15px 62px;
+  position: relative;
+}
+
+.btn--entry::before {
+  background-color: #fff;
+  content: "";
+  height: 2px;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  width: 23px;
+}
+
+.btn--entry::after {
+  background-color: #fff;
+  content: "";
+  height: 2px;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  -webkit-transform: rotate(33.3deg);
+          transform: rotate(33.3deg);
+  -webkit-transform-origin: 100% 50% 0;
+          transform-origin: 100% 50% 0;
+  width: 11px;
+}
+
+.open .burgerBtn {
+  z-index: 200;
+}
+
+.burgerBtn__bar {
+  background-color: #60d8cc;
+  display: block;
+  height: 2px;
+  position: absolute;
+  right: 0;
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s;
+}
+
+.burgerBtn__bar--top {
+  width: 24px;
+}
+
+.open .burgerBtn__bar--top {
+  top: 50%;
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+  width: 26px;
+}
+
+.burgerBtn__bar--middle {
+  top: 8px;
+  width: 20px;
+}
+
+.open .burgerBtn__bar--middle {
+  display: none;
+}
+
+.burgerBtn__bar--bottom {
+  top: 16px;
+  width: 16px;
+}
+
+.open .burgerBtn__bar--bottom {
+  top: 50%;
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+  width: 26px;
+}
+
+.overlay {
+  display: none;
+  -webkit-transition: all .9s;
+  transition: all .9s;
+}
+
+.open .overlay {
+  background: #fff;
+  cursor: pointer;
+  display: block;
+  height: 100%;
+  left: 0;
+  opacity: .9;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 150;
+}
+
+.open .headerNav {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #2ca9b6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-weight: bold;
+  font-size: 16px;
+  font-size: 1rem;
+  left: 50%;
+  position: absolute;
+  top: 186px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 200;
+}
+
+.open .headerNav__item {
+  padding-bottom: 45px;
+}
+
+@media screen and (min-width: 959px) {
+  .header {
+    padding: 17px 50px;
+  }
+  .headerInner {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .headerNav {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .headerNav__item {
+    font-weight: bold;
+  }
+  .headerNav__item:not(:last-of-type) {
+    margin-left: 20px;
+  }
+  .headerNav__item:last-of-type {
+    margin-left: 20px;
+  }
+  .headerLogo {
+    margin-right: 16px;
+  }
+  .burgerBtn {
+    display: none;
+  }
+  .header__title {
+    font-size: 16px;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 1223px) {
+  .headerNav__item:not(:last-of-type) {
+    margin-left: 40px;
+  }
+  .headerNav__item:last-of-type {
+    margin-left: 50px;
+  }
+}
+
+/*-------------------------------------------
+/* mainVisual
+/*------------------------------------------*/
+.mainVisualImg {
+  height: 530px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 67% -50px;
+     object-position: 67% -50px;
+  width: 100%;
+}
+
+@media screen and (min-width: 959px) {
+  .mainVisualImg {
+    height: 830px;
+    -o-object-position: 50% 70%;
+       object-position: 50% 70%;
+  }
+}
 /*# sourceMappingURL=style.css.map */
