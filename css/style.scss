@@ -1,5 +1,6 @@
 // compileExpanded: style.css
 
+// q_mainvisual画像の垂直方向があってない
 //*----------------------------------------*//
 //*
 //*  関数、定数の定義
@@ -82,6 +83,7 @@ body {
 }
 
 .sectionWrapper {
+  overflow-x: hidden; //最後に消すこと
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -92,7 +94,7 @@ body {
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 17px 20px 14px;
+  padding: 14px 20px 12px;
 }
 .headerInner {
   display: flex;
@@ -103,10 +105,28 @@ body {
   justify-content: space-between;
 }
 
+.open .headerNav {
+  align-items: center;
+  color: $colorLightBlue2;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  @include rem(16);
+  left: 50%;
+  position: absolute;
+  top: 186px;
+  transform: translateX(-50%);
+  z-index: 200;
+}
+
 .headerLogo {
   height: auto;
   margin-right: 6px;
   width: 109px;
+}
+
+.open .headerNav__item {
+  padding-bottom: 45px;
 }
 
 .header__title {
@@ -118,6 +138,11 @@ body {
 
 .burgerBtn {
   position: relative;
+  top: 3px;
+}
+
+.open .burgerBtn {
+  z-index: 200;
 }
 
 .btn--entry {
@@ -149,10 +174,6 @@ body {
     transform-origin: 100% 50% 0;
     width: 11px;
   }
-}
-
-.open .burgerBtn {
-  z-index: 200;
 }
 
 .burgerBtn__bar {
@@ -209,24 +230,6 @@ body {
   z-index: 150;
 }
 
-.open .headerNav {
-  align-items: center;
-  color: $colorLightBlue2;
-  display: flex;
-  flex-direction: column;
-  font-weight: bold;
-  @include rem(16);
-  left: 50%;
-  position: absolute;
-  top: 186px;
-  transform: translateX(-50%);
-  z-index: 200;
-}
-
-.open .headerNav__item {
-  padding-bottom: 45px;
-}
-
 @include responsive(md) {
   .header {
     padding: 17px 50px;
@@ -242,11 +245,9 @@ body {
     font-weight: bold;
     &:not(:last-of-type) {
       margin-left: 20px;
-      // margin-left: 6.239%;
     }
     &:last-of-type {
       margin-left: 20px;
-      // margin-left: 7.799%;
     }
   }
 
@@ -274,16 +275,85 @@ body {
 /*-------------------------------------------
 /* mainVisual
 /*------------------------------------------*/
+.mainVisual {
+  position: relative;
+}
+
 .mainVisualImg {
   height: 530px;
   object-fit: cover;
-  object-position: 67% -50px;
+  object-position: 67% 0;
   width: 100%;
+}
+
+.pictureText {
+  color: $colorWhite;
+  &--header {
+    align-items: center;
+    bottom: 138px;
+    display: inline-flex;
+    flex-direction: column;
+    left: 50%;
+    position: relative;
+    transform: translatex(-50%);
+  }
+  &__english {
+    font-family: "Caveat";
+    @include rem(60);
+    letter-spacing: -.01em;
+    &::after {
+      background-color: $colorWhite;
+      bottom: 2px;
+      content: "";
+      height: 3px;
+      left: 50%;
+      position: absolute;
+      transform: translatex(-50%) rotate(-2deg);
+      width: 100%;
+    }
+    &--header {
+      // position: absolute;
+    }
+  }
+  &__japanese {
+    font-feature-settings: "palt";
+    font-style: italic;
+    font-weight: bold;
+    @include rem(18);
+    letter-spacing: .1em;
+
+    &--header {
+      bottom: -32px;
+      position: absolute;
+      right: 0;
+    }
+  }
 }
 
 @include responsive(md) {
   .mainVisualImg {
     height: 830px;
     object-position: 50% 70%;
+  }
+  .mainVisualImgWrapper {
+    height: 100%;
+    position: relative;
+    width: 100%;
+  }
+  .mainVisualMask {
+    background: rgba(0, 0, 0, .75);
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  .pictureText {
+    &--header {
+      left: 20px;
+      transform: translatex(0);
+    }
   }
 }

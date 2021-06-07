@@ -13,6 +13,7 @@ body {
 }
 
 .sectionWrapper {
+  overflow-x: hidden;
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -27,7 +28,7 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 17px 20px 14px;
+  padding: 14px 20px 12px;
 }
 
 .headerInner {
@@ -46,10 +47,37 @@ body {
           justify-content: space-between;
 }
 
+.open .headerNav {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #2ca9b6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-weight: bold;
+  font-size: 16px;
+  font-size: 1rem;
+  left: 50%;
+  position: absolute;
+  top: 186px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 200;
+}
+
 .headerLogo {
   height: auto;
   margin-right: 6px;
   width: 109px;
+}
+
+.open .headerNav__item {
+  padding-bottom: 45px;
 }
 
 .header__title {
@@ -63,6 +91,11 @@ body {
 
 .burgerBtn {
   position: relative;
+  top: 3px;
+}
+
+.open .burgerBtn {
+  z-index: 200;
 }
 
 .btn--entry {
@@ -100,10 +133,6 @@ body {
   -webkit-transform-origin: 100% 50% 0;
           transform-origin: 100% 50% 0;
   width: 11px;
-}
-
-.open .burgerBtn {
-  z-index: 200;
 }
 
 .burgerBtn__bar {
@@ -169,33 +198,6 @@ body {
   z-index: 150;
 }
 
-.open .headerNav {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  color: #2ca9b6;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  font-weight: bold;
-  font-size: 16px;
-  font-size: 1rem;
-  left: 50%;
-  position: absolute;
-  top: 186px;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  z-index: 200;
-}
-
-.open .headerNav__item {
-  padding-bottom: 45px;
-}
-
 @media screen and (min-width: 959px) {
   .header {
     padding: 17px 50px;
@@ -246,13 +248,74 @@ body {
 /*-------------------------------------------
 /* mainVisual
 /*------------------------------------------*/
+.mainVisual {
+  position: relative;
+}
+
 .mainVisualImg {
   height: 530px;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: 67% -50px;
-     object-position: 67% -50px;
+  -o-object-position: 67% 0;
+     object-position: 67% 0;
   width: 100%;
+}
+
+.pictureText {
+  color: #fff;
+}
+
+.pictureText--header {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  bottom: 138px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  left: 50%;
+  position: relative;
+  -webkit-transform: translatex(-50%);
+          transform: translatex(-50%);
+}
+
+.pictureText__english {
+  font-family: "Caveat";
+  font-size: 60px;
+  font-size: 3.75rem;
+  letter-spacing: -.01em;
+}
+
+.pictureText__english::after {
+  background-color: #fff;
+  bottom: 2px;
+  content: "";
+  height: 3px;
+  left: 50%;
+  position: absolute;
+  -webkit-transform: translatex(-50%) rotate(-2deg);
+          transform: translatex(-50%) rotate(-2deg);
+  width: 100%;
+}
+
+.pictureText__japanese {
+  -webkit-font-feature-settings: "palt";
+          font-feature-settings: "palt";
+  font-style: italic;
+  font-weight: bold;
+  font-size: 18px;
+  font-size: 1.125rem;
+  letter-spacing: .1em;
+}
+
+.pictureText__japanese--header {
+  bottom: -32px;
+  position: absolute;
+  right: 0;
 }
 
 @media screen and (min-width: 959px) {
@@ -260,6 +323,25 @@ body {
     height: 830px;
     -o-object-position: 50% 70%;
        object-position: 50% 70%;
+  }
+  .mainVisualImgWrapper {
+    height: 100%;
+    position: relative;
+    width: 100%;
+  }
+  .mainVisualMask {
+    background: rgba(0, 0, 0, 0.75);
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  .pictureText--header {
+    left: 20px;
+    -webkit-transform: translatex(0);
+            transform: translatex(0);
   }
 }
 /*# sourceMappingURL=style.css.map */
