@@ -18,6 +18,13 @@ body {
   padding-right: 20px;
 }
 
+@media screen and (min-width: 959px) {
+  .sectionWrapper {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
 /*-------------------------------------------
 /* header
 /*------------------------------------------*/
@@ -248,11 +255,12 @@ body {
 /*-------------------------------------------
 /* mainVisual
 /*------------------------------------------*/
-.mainVisual {
+.mainVisualContainer {
   position: relative;
 }
 
 .mainVisualImg {
+  display: block;
   height: 530px;
   -o-object-fit: cover;
      object-fit: cover;
@@ -269,7 +277,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  bottom: 138px;
+  bottom: 10px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -278,7 +286,7 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   left: 50%;
-  position: relative;
+  position: absolute;
   -webkit-transform: translatex(-50%);
           transform: translatex(-50%);
 }
@@ -288,6 +296,7 @@ body {
   font-size: 60px;
   font-size: 3.75rem;
   letter-spacing: -.01em;
+  width: 294px;
 }
 
 .pictureText__english::after {
@@ -299,7 +308,7 @@ body {
   position: absolute;
   -webkit-transform: translatex(-50%) rotate(-2deg);
           transform: translatex(-50%) rotate(-2deg);
-  width: 100%;
+  width: 95%;
 }
 
 .pictureText__japanese {
@@ -315,7 +324,7 @@ body {
 .pictureText__japanese--header {
   bottom: -32px;
   position: absolute;
-  right: 0;
+  right: 3px;
 }
 
 @media screen and (min-width: 959px) {
@@ -324,24 +333,30 @@ body {
     -o-object-position: 50% 70%;
        object-position: 50% 70%;
   }
-  .mainVisualImgWrapper {
-    height: 100%;
-    position: relative;
-    width: 100%;
-  }
-  .mainVisualMask {
-    background: rgba(0, 0, 0, 0.75);
-    content: "";
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
   .pictureText--header {
-    left: 20px;
+    bottom: -67px;
+    left: 130px;
     -webkit-transform: translatex(0);
             transform: translatex(0);
+  }
+  .pictureText__english {
+    font-size: 160px;
+    font-size: 10rem;
+    width: auto;
+  }
+  .pictureText__english::after {
+    bottom: 23px;
+    -webkit-transform: translatex(-49%) rotate(-1deg);
+            transform: translatex(-49%) rotate(-1deg);
+    width: 98%;
+  }
+  .pictureText__japanese {
+    font-size: 32px;
+    font-size: 2rem;
+  }
+  .pictureText__japanese--header {
+    bottom: -41px;
+    right: -2px;
   }
 }
 /*# sourceMappingURL=style.css.map */

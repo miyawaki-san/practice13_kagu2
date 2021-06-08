@@ -1,6 +1,8 @@
 // compileExpanded: style.css
 
 // q_mainvisual画像の垂直方向があってない
+// q_mainvisualのマスクが効かない
+
 //*----------------------------------------*//
 //*
 //*  関数、定数の定義
@@ -86,6 +88,12 @@ body {
   overflow-x: hidden; //最後に消すこと
   padding-left: 20px;
   padding-right: 20px;
+}
+@include responsive(md) {
+  .sectionWrapper {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
 }
 
 /*-------------------------------------------
@@ -276,10 +284,19 @@ body {
 /* mainVisual
 /*------------------------------------------*/
 .mainVisual {
+}
+.mainVisualContainer {
   position: relative;
 }
+// .mainVisualMask {
+//   background-color: rgba(0, 0, 0, .75);
+//   height: 100%;
+//   position: absolute;
+//   width: 100%;
+// }
 
 .mainVisualImg {
+  display: block;
   height: 530px;
   object-fit: cover;
   object-position: 67% 0;
@@ -290,17 +307,18 @@ body {
   color: $colorWhite;
   &--header {
     align-items: center;
-    bottom: 138px;
+    bottom: 10px;
     display: inline-flex;
     flex-direction: column;
     left: 50%;
-    position: relative;
+    position: absolute;
     transform: translatex(-50%);
   }
   &__english {
     font-family: "Caveat";
     @include rem(60);
     letter-spacing: -.01em;
+    width: 294px;
     &::after {
       background-color: $colorWhite;
       bottom: 2px;
@@ -309,7 +327,7 @@ body {
       left: 50%;
       position: absolute;
       transform: translatex(-50%) rotate(-2deg);
-      width: 100%;
+      width: 95%;
     }
     &--header {
       // position: absolute;
@@ -325,7 +343,7 @@ body {
     &--header {
       bottom: -32px;
       position: absolute;
-      right: 0;
+      right: 3px;
     }
   }
 }
@@ -335,25 +353,28 @@ body {
     height: 830px;
     object-position: 50% 70%;
   }
-  .mainVisualImgWrapper {
-    height: 100%;
-    position: relative;
-    width: 100%;
-  }
-  .mainVisualMask {
-    background: rgba(0, 0, 0, .75);
-    content: "";
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
 
   .pictureText {
     &--header {
-      left: 20px;
+      bottom: -67px;
+      left: 130px;
       transform: translatex(0);
+    }
+    &__english {
+      @include rem(160);
+      width: auto;
+      &::after {
+        bottom: 23px;
+        transform: translatex(-49%) rotate(-1deg);
+        width: 98%;
+      }
+    }
+    &__japanese {
+      @include rem(32);
+      &--header {
+        bottom: -41px;
+        right: -2px;
+      }
     }
   }
 }
