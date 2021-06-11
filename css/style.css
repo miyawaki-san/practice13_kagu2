@@ -12,16 +12,73 @@ body {
   letter-spacing: .05em;
 }
 
-.sectionWrapper {
+.sectionWrapper--wide, .sectionWrapper--narrow {
   overflow-x: hidden;
   padding-left: 20px;
   padding-right: 20px;
 }
 
+.sectionTitleEN {
+  color: #fff;
+  font-family: "Caveat";
+  font-weight: 400;
+  font-size: 100px;
+  font-size: 6.25rem;
+  letter-spacing: .001em;
+  z-index: -1;
+}
+
+.sectionTitleEN--vision {
+  left: 1px;
+  position: absolute;
+  top: -23px;
+}
+
+.sectionTitleJP {
+  color: #292929;
+  font-style: italic;
+  font-size: 24px;
+  font-size: 1.5rem;
+  letter-spacing: .08em;
+}
+
+.sectionTitleJP--vision {
+  left: -12px;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.br--sp {
+  display: none;
+}
+
 @media screen and (min-width: 959px) {
-  .sectionWrapper {
+  .sectionWrapper--wide {
     padding-left: 50px;
     padding-right: 50px;
+  }
+  .sectionWrapper--narrow {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+  .sectionTitleEN {
+    font-size: 200px;
+    font-size: 12.5rem;
+  }
+  .sectionTitleEN--vision {
+    left: 130px;
+    top: -50px;
+  }
+  .sectionTitleJP {
+    font-size: 36px;
+    font-size: 2.25rem;
+    letter-spacing: .1em;
+  }
+  .sectionTitleJP--vision {
+    margin-bottom: 14px;
+  }
+  .br--sp {
+    display: block;
   }
 }
 
@@ -35,7 +92,7 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 14px 20px 12px;
+  padding: 14px 20px 10px;
 }
 
 .headerInner {
@@ -77,9 +134,9 @@ body {
   z-index: 200;
 }
 
-.headerLogo {
+.header__logo {
   height: auto;
-  margin-right: 6px;
+  margin-right: 10px;
   width: 109px;
 }
 
@@ -93,7 +150,8 @@ body {
   font-weight: bold;
   font-size: 12px;
   font-size: 0.75rem;
-  letter-spacing: .1em;
+  letter-spacing: .12em;
+  padding-top: 2px;
 }
 
 .burgerBtn {
@@ -106,8 +164,8 @@ body {
 }
 
 .btn--entry {
-  background: -webkit-gradient(linear, left top, right top, from(#24a2b3), to(#68e0cf));
-  background: linear-gradient(90deg, #24a2b3, #68e0cf);
+  background: -webkit-gradient(linear, left top, right top, from(#2ca9b6), to(#60d8cc));
+  background: linear-gradient(90deg, #2ca9b6, #60d8cc);
   border-radius: 23px;
   color: #fff;
   font-size: 20px;
@@ -209,6 +267,11 @@ body {
   .header {
     padding: 17px 50px;
   }
+  .header__logo {
+    height: auto;
+    margin-right: 15px;
+    width: 145px;
+  }
   .headerInner {
     -webkit-box-align: center;
         -ms-flex-align: center;
@@ -240,21 +303,26 @@ body {
   .header__title {
     font-size: 16px;
     font-size: 1rem;
+    padding-top: 8px;
   }
 }
 
 @media screen and (min-width: 1223px) {
   .headerNav__item:not(:last-of-type) {
-    margin-left: 40px;
+    margin-left: 37px;
   }
   .headerNav__item:last-of-type {
-    margin-left: 50px;
+    margin-left: 47px;
   }
 }
 
 /*-------------------------------------------
 /* mainVisual
 /*------------------------------------------*/
+.mainVisual {
+  padding-bottom: 32px;
+}
+
 .mainVisualContainer {
   position: relative;
 }
@@ -328,13 +396,16 @@ body {
 }
 
 @media screen and (min-width: 959px) {
+  .mainVisual {
+    padding-bottom: 49px;
+  }
   .mainVisualImg {
     height: 830px;
     -o-object-position: 50% 70%;
        object-position: 50% 70%;
   }
   .pictureText--header {
-    bottom: -67px;
+    bottom: -78px;
     left: 130px;
     -webkit-transform: translatex(0);
             transform: translatex(0);
@@ -357,6 +428,58 @@ body {
   .pictureText__japanese--header {
     bottom: -41px;
     right: -2px;
+  }
+}
+
+/*-------------------------------------------
+/* vision
+/*------------------------------------------*/
+.vision {
+  position: relative;
+}
+
+.vision__text {
+  font-size: 16px;
+  font-size: 1rem;
+  letter-spacing: .088em;
+  line-height: 2;
+  margin-bottom: 22px;
+}
+
+.backgroundBox {
+  background: -webkit-gradient(linear, left top, right top, from(#2ca9b6), to(#60d8cc));
+  background: linear-gradient(90deg, #2ca9b6, #60d8cc);
+  height: 100px;
+  position: absolute;
+  right: 0;
+  width: 52%;
+}
+
+.visionInner {
+  background-image: url(../img/background.png);
+  background-repeat: repeat;
+  padding-bottom: 18px;
+  padding-top: 39px;
+  position: relative;
+  -webkit-transform: translateY(50px);
+          transform: translateY(50px);
+}
+
+@media screen and (min-width: 959px) {
+  .vision__text {
+    letter-spacing: .23em;
+    line-height: 2.75;
+    margin-bottom: 23px;
+  }
+  .backgroundBox {
+    height: 400px;
+    width: 50%;
+  }
+  .visionInner {
+    padding-top: 90px;
+    -webkit-transform: translateY(80px);
+            transform: translateY(80px);
+    width: 1040px;
   }
 }
 /*# sourceMappingURL=style.css.map */

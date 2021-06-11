@@ -63,7 +63,7 @@ $breakpoints: (
 //*----------------------------------------*
 //*  カラー定数の設定
 //*----------------------------------------*
-$colorGray: #333;
+$colorGray: #292929;
 $colorLightBlue: #60d8cc;
 $colorLightBlue2: #2ca9b6;
 $colorBrown2: #aa8f7b;
@@ -84,15 +84,70 @@ body {
   letter-spacing: .05em;
 }
 
-.sectionWrapper {
+.sectionWrapper--wide, .sectionWrapper--narrow {
   overflow-x: hidden; //最後に消すこと
   padding-left: 20px;
   padding-right: 20px;
 }
+
+.sectionTitleEN {
+  color: $colorWhite;
+  font-family: "Caveat";
+  font-weight: 400;
+  @include rem(100);
+  letter-spacing: .001em;
+  z-index: -1;
+  &--vision {
+    left: 1px;
+    position: absolute;
+    top: -23px;
+  }
+}
+
+.sectionTitleJP {
+  color: $colorGray;
+  font-style: italic;
+  @include rem(24);
+  letter-spacing: .08em;
+  &--vision {
+    left: -12px;
+    margin-bottom: 16px;
+    position: relative;
+  }
+}
+
+.br--sp {
+  display: none;
+}
+
+@include responsive(sm) {
+}
+
 @include responsive(md) {
-  .sectionWrapper {
+  .sectionWrapper--wide {
     padding-left: 50px;
     padding-right: 50px;
+  }
+  .sectionWrapper--narrow {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+  .sectionTitleEN {
+    @include rem(200);
+    &--vision {
+      left: 130px;
+      top: -50px;
+    }
+  }
+  .sectionTitleJP {
+    @include rem(36);
+    letter-spacing: .1em;
+    &--vision {
+      margin-bottom: 14px;
+    }
+  }
+  .br--sp {
+    display: block;
   }
 }
 
@@ -102,7 +157,7 @@ body {
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 14px 20px 12px;
+  padding: 14px 20px 10px;
 }
 .headerInner {
   display: flex;
@@ -127,9 +182,9 @@ body {
   z-index: 200;
 }
 
-.headerLogo {
+.header__logo {
   height: auto;
-  margin-right: 6px;
+  margin-right: 10px;
   width: 109px;
 }
 
@@ -141,7 +196,8 @@ body {
   font-feature-settings: "palt";
   font-weight: bold;
   @include rem(12);
-  letter-spacing: .1em;
+  letter-spacing: .12em;
+  padding-top: 2px;
 }
 
 .burgerBtn {
@@ -154,7 +210,7 @@ body {
 }
 
 .btn--entry {
-  background: linear-gradient(90deg, #24a2b3, #68e0cf);
+  background: linear-gradient(90deg, $colorLightBlue2, $colorLightBlue);
   border-radius: 23px;
   color: #fff;
   @include rem(20);
@@ -241,6 +297,11 @@ body {
 @include responsive(md) {
   .header {
     padding: 17px 50px;
+    &__logo {
+      height: auto;
+      margin-right: 15px;
+      width: 145px;
+    }
   }
   .headerInner {
     align-items: center;
@@ -267,16 +328,17 @@ body {
   }
   .header__title {
     @include rem(16);
+    padding-top: 8px;
   }
 }
 
 @include responsive(xl) {
   .headerNav__item {
     &:not(:last-of-type) {
-      margin-left: 40px;
+      margin-left: 37px;
     }
     &:last-of-type {
-      margin-left: 50px;
+      margin-left: 47px;
     }
   }
 }
@@ -284,6 +346,7 @@ body {
 /* mainVisual
 /*------------------------------------------*/
 .mainVisual {
+  padding-bottom: 32px;
 }
 .mainVisualContainer {
   position: relative;
@@ -349,6 +412,10 @@ body {
 }
 
 @include responsive(md) {
+  .mainVisual {
+    padding-bottom: 49px;
+  }
+
   .mainVisualImg {
     height: 830px;
     object-position: 50% 70%;
@@ -356,7 +423,7 @@ body {
 
   .pictureText {
     &--header {
-      bottom: -67px;
+      bottom: -78px;
       left: 130px;
       transform: translatex(0);
     }
@@ -376,5 +443,55 @@ body {
         right: -2px;
       }
     }
+  }
+}
+
+/*-------------------------------------------
+/* vision
+/*------------------------------------------*/
+.vision {
+  position: relative;
+  &__text {
+    @include rem(16);
+    letter-spacing: .088em;
+    line-height: 2;
+    margin-bottom: 22px;
+  }
+}
+
+.backgroundBox {
+  background: linear-gradient(90deg, $colorLightBlue2, $colorLightBlue);
+  height: 100px;
+  position: absolute;
+  right: 0;
+  width: 52%;
+}
+
+.visionInner {
+  background-image: url(../img/background.png);
+  background-repeat: repeat;
+  padding-bottom: 18px;
+  padding-top: 39px;
+  position: relative;
+  transform: translateY(50px);
+}
+
+@include responsive(md) {
+  .vision {
+    &__text {
+      letter-spacing: .23em;
+      line-height: 2.75;
+      margin-bottom: 23px;
+    }
+  }
+
+  .backgroundBox {
+    height: 400px;
+    width: 50%;
+  }
+  .visionInner {
+    padding-top: 90px;
+    transform: translateY(80px);
+    width: 1040px;
   }
 }
