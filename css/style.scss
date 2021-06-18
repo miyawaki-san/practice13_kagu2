@@ -1,5 +1,6 @@
 // compileExpanded: style.css
 
+// q_mainvisual画像修正する
 // q_mainvisual画像の垂直方向があってない
 // q_mainvisualのマスクが効かない
 
@@ -96,7 +97,7 @@ body {
   font-weight: 400;
   @include rem(100);
   letter-spacing: .001em;
-  z-index: -1;
+  // z-index: -1;
   &--vision {
     left: 1px;
     position: absolute;
@@ -246,7 +247,7 @@ body {
   height: 2px;
   position: absolute;
   right: 0;
-  transition: transform .5s;
+  transition: .5s;
 }
 
 .burgerBtn__bar--top {
@@ -303,6 +304,9 @@ body {
       width: 145px;
     }
   }
+  .header__title {
+    @include rem(14);
+  }
   .headerInner {
     align-items: center;
   }
@@ -313,10 +317,10 @@ body {
   .headerNav__item {
     font-weight: bold;
     &:not(:last-of-type) {
-      margin-left: 20px;
+      margin-left: 14px;
     }
     &:last-of-type {
-      margin-left: 20px;
+      margin-left: 12px;
     }
   }
 
@@ -325,10 +329,6 @@ body {
   }
   .burgerBtn {
     display: none;
-  }
-  .header__title {
-    @include rem(16);
-    padding-top: 8px;
   }
 }
 
@@ -341,6 +341,10 @@ body {
       margin-left: 47px;
     }
   }
+  .header__title {
+    @include rem(16);
+    padding-top: 8px;
+  }
 }
 /*-------------------------------------------
 /* mainVisual
@@ -349,8 +353,9 @@ body {
   padding-bottom: 32px;
 }
 .mainVisualContainer {
-  position: relative;
+  position: relative; //q_必要？たぶんいらない
 }
+
 // .mainVisualMask {
 //   background-color: rgba(0, 0, 0, .75);
 //   height: 100%;
@@ -358,11 +363,21 @@ body {
 //   width: 100%;
 // }
 
-.mainVisualImg {
+.mainVisual__bgImg {
   display: block;
+  height: 182.92906%;
+  object-fit: none;
+  object-position: 64% 72%;
+  transform: translate(-22.6665%, -22.6665%) scale(.54667);
+  width: 182.92906%;
+}
+//縮小後の画像サイズ908px/画像サイズ1650px≒55%にリサイズ
+//表示サイズも55%とになるため、width、heightを183%(=1/0.54667)
+//縮小分の半分を、上下移動に移動する。1-(0.54667/2)
+
+.test {
   height: 530px;
-  object-fit: cover;
-  object-position: 67% 0;
+  overflow: hidden;
   width: 100%;
 }
 
@@ -415,16 +430,20 @@ body {
   .mainVisual {
     padding-bottom: 49px;
   }
-
-  .mainVisualImg {
+  .test {
     height: 830px;
-    object-position: 50% 70%;
+  }
+  .mainVisual__bgImg {
+    height: 100%;
+    object-position: calc(17% + (100vw - 1650px) * .5) 34%;
+    transform: scale(1);
+    width: 100%;
   }
 
   .pictureText {
     &--header {
-      bottom: -78px;
-      left: 130px;
+      bottom: -67px;
+      left: 8.125%;
       transform: translatex(0);
     }
     &__english {
@@ -450,6 +469,7 @@ body {
 /* vision
 /*------------------------------------------*/
 .vision {
+  margin-bottom: 130px;
   position: relative;
   &__text {
     @include rem(16);
@@ -459,7 +479,7 @@ body {
   }
 }
 
-.backgroundBox {
+.backgroundBox--vision {
   background: linear-gradient(90deg, $colorLightBlue2, $colorLightBlue);
   height: 100px;
   position: absolute;
@@ -478,6 +498,8 @@ body {
 
 @include responsive(md) {
   .vision {
+    margin-bottom: 230px;
+
     &__text {
       letter-spacing: .23em;
       line-height: 2.75;
@@ -485,13 +507,117 @@ body {
     }
   }
 
-  .backgroundBox {
+  .backgroundBox--vision {
     height: 400px;
     width: 50%;
   }
   .visionInner {
+    padding-bottom: 65px;
     padding-top: 90px;
     transform: translateY(80px);
     width: 1040px;
+  }
+}
+
+/*-------------------------------------------
+/* about us
+/*------------------------------------------*/
+.aboutUs {
+  position: relative;
+  width: 100%;
+}
+
+.aboutUs__bgImg {
+  height: 760px;
+  object-fit: none;
+  object-position: 67% 53%;
+  width: 100%;
+}
+.aboutUsInner {
+  height: 760px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.sectionTitleEN--aboutUs {
+  color: $colorLightBlue;
+  @include rem(50);
+  position: absolute;
+  right: 29px;
+  top: 17px;
+}
+
+.aboutUsItemWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: absolute;
+  top: 107px;
+  width: 335px;
+}
+
+.aboutUsContainer {
+  height: 760px;
+  overflow: hidden;
+}
+
+.aboutUsItem {
+  background: linear-gradient(90deg, $colorLightBlue2, $colorLightBlue);
+  color: $colorWhite;
+  height: 155px;
+  margin-bottom: 26px;
+  position: relative;
+  width: 155px;
+  &__arrow {
+    background-color: $colorWhite;
+    display: inline-block;
+    height: 2px;
+    left: 113px;
+    position: relative;
+    top: 121px;
+    width: 31px;
+    &::after {
+      background-color: inherit;
+      content: "";
+      height: 2px;
+      position: absolute;
+      right: 2px;
+      top: -3px;
+      transform: rotate(30deg);
+      width: 10px;
+    }
+  }
+}
+
+.aboutUsItem:nth-of-type(2) {
+  transform: translateY(20px);
+}
+
+.aboutUsItem__title {
+  @include rem(18);
+  left: 50%;
+  letter-spacing: .09em;
+  position: absolute;
+  top: 57px;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.aboutUsItem__outline {
+  display: none;
+}
+
+@include responsive(md) {
+  .aboutUs__bgImg {
+    height: 900px;
+    object-position: 2% 24%;
+  }
+  .aboutUsItem {
+    height: 325px;
+    width: 325px;
+  }
+  .aboutUsItemWrapper {
+    top: 49px;
   }
 }

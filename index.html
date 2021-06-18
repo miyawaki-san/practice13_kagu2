@@ -75,14 +75,14 @@
     <main>
       <!-- ↓ mainVisual ↓ -->
       <section id="mainVisual" class="mainVisual sectionWrapper--wide">
-        <picture class="mainVisualContainer">
-          <source
-            media="(max-width:959px)"
-            srcset="img/mainvisual_palmtop.jpg"
-          />
-          <img src="img/mainvisual_desktop.jpg" alt="" class="mainVisualImg" />
-          <!-- <div class="mainVisualMask"></div> -->
-        </picture>
+        <div class="test">
+          <picture class="mainVisualContainer">
+            <source srcset="img/mainvisual.webp" type="image/webp" />
+            <img src="img/mainvisual.jpg" alt="" class="mainVisual__bgImg" />
+
+            <!-- <div class="mainVisualMask"></div> -->
+          </picture>
+        </div>
 
         <div class="pictureText pictureText--header">
           <p class="pictureText__english pictureText__english--header">
@@ -97,7 +97,7 @@
 
       <!-- ↓ vision ↓ -->
       <section id="vision" class="vision">
-        <div class="backgroundBox"></div>
+        <div class="backgroundBox--vision"></div>
         <div class="visionInner sectionWrapper--narrow">
           <h1 class="sectionTitleEN sectionTitleEN--vision">VISION</h1>
           <h2 class="sectionTitleJP sectionTitleJP--vision">
@@ -120,23 +120,45 @@
       <!-- ↑ vision ↑ -->
 
       <!-- ↓ about us ↓ -->
-      <section id="aboutUs" class="aboutUs sectionWrapper--wide">
-        <h1 class="sectionTitle">ABOUT US</h1>
-        <div class="aboutUsItem">
-          <p class="aboutUsItem__title">代表メッセージ</p>
-          <p class="aboutUsItem__outline">
-            代表からのメッセージをご覧いただけます。
-          </p>
+      <section id="aboutUs" class="aboutUs">
+        <div class="aboutUsContainer">
+          <picture>
+            <source
+              media="(max-width:959px)"
+              srcset="img/aboutus_parmtop.webp"
+              type="image/webp"
+            />
+            <source
+              media="(max-width:959px)"
+              srcset="img/aboutus_parmtop.jpg"
+            />
+            <source srcset="img/aboutus_desktop.webp" type="image/webp" />
+            <img src="img/aboutus_desktop.jpg" class="aboutUs__bgImg" alt="" />
+          </picture>
         </div>
-        <div class="aboutUsItem">
-          <p class="aboutUsItem__title">会社概要</p>
-          <p class="aboutUsItem__outline">会社概要をご紹介します。</p>
-        </div>
-        <div class="aboutUsItem">
-          <p class="aboutUsItem__title">沿革</p>
-          <p class="aboutUsItem__outline">
-            創業当時からの歴史をご覧いただけます。
-          </p>
+        <div class="sectionWrapper--wide aboutUsInner">
+          <h1 class="sectionTitleEN sectionTitleEN--aboutUs">ABOUT US</h1>
+          <div class="aboutUsItemWrapper">
+            <div class="aboutUsItem">
+              <p class="aboutUsItem__title">代表メッセージ</p>
+              <p class="aboutUsItem__outline">
+                代表からのメッセージをご覧いただけます。
+              </p>
+              <span class="aboutUsItem__arrow"></span>
+            </div>
+            <div class="aboutUsItem">
+              <p class="aboutUsItem__title">会社概要</p>
+              <p class="aboutUsItem__outline">会社概要をご紹介します。</p>
+              <span class="aboutUsItem__arrow"></span>
+            </div>
+            <div class="aboutUsItem">
+              <p class="aboutUsItem__title">沿革</p>
+              <p class="aboutUsItem__outline">
+                創業当時からの歴史をご覧いただけます。
+              </p>
+              <span class="aboutUsItem__arrow"></span>
+            </div>
+          </div>
         </div>
       </section>
       <!-- ↑ about us ↑ -->
